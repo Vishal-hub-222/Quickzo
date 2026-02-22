@@ -36,7 +36,16 @@ const getTotalCartAmount=()=>{
     }  
      return totalAmount;
 }
-const contextvalue = {all_product,cardItems,addToCart,removefromCart,getTotalCartAmount};
+const getTotalcartItem=()=>{
+    let sum=0;
+    for(const i in cardItems)
+    {
+          sum+=cardItems[i]
+    }
+    return sum;
+}
+
+const contextvalue = {all_product,cardItems,addToCart,removefromCart,getTotalCartAmount,getTotalcartItem};
 
 return(
     <ShopContext.Provider value={contextvalue}>

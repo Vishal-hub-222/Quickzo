@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useRef } from 'react'
 import './Navbar.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import { NavLink } from 'react-router-dom'
+import { ShopContext } from '../../context/ShopContext'
+import nav_dorpdown from '../Assets/nav_dropdown.png'
 export const Navbar = () => {
-  
+  const {getTotalcartItem}=useContext(ShopContext)
+  const menuref= useRef()
+  const dropdown_toggle =(e) =>{
+  menuref.current.classList.toggle('nav-manu-visible');
+  e.target.classList.toggle('open')
+  }
    const navLinkStyles = ({ isActive }) => ({
   color: isActive ? '#007bff' : '#333',
   textDecoration: isActive ? 'none' : 'underline',
@@ -17,7 +24,8 @@ export const Navbar = () => {
             <img src={logo} alt="" />
             <p>SHOPPER</p>
         </div>
-        <ul className="nav-menu">
+        <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dorpdown} alt="" />
+        <ul  ref={menuref} className="nav-menu">
             <li ><NavLink style={navLinkStyles } to='/'>Shop</NavLink> </li>
             <li ><NavLink  style={navLinkStyles} to='/mens'>Men</NavLink> </li>
             <li > <NavLink  style={navLinkStyles} to='/womens'>Women</NavLink></li>
@@ -26,7 +34,7 @@ export const Navbar = () => {
         <div className="nav-login-cart">
           <NavLink style={navLinkStyles} to='/login'><button>Login</button></NavLink>  
            <NavLink style={navLinkStyles} to='/cart'><img src={cart_icon} alt="" /></NavLink> 
-            <div className="nav-cart-count">0</div>
+            <div className="nav-cart-count">{getTotalcartItem()}</div>
         </div>
     </div>
   )
