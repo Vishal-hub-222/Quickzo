@@ -13,8 +13,8 @@ export const Navbar = () => {
   e.target.classList.toggle('open')
   }
    const navLinkStyles = ({ isActive }) => ({
-  color: isActive ? '#007bff' : '#333',
-  textDecoration: isActive ? 'none' : 'underline',
+  color: isActive ? '#ff0000' : '#333',
+  textDecoration: isActive ? 'none' : 'none',
   fontWeight: isActive ? 'bold' : 'normal',
   padding: '5px 10px'
 });
