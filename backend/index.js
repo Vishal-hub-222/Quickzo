@@ -114,6 +114,22 @@ app.post('/addproduct',async(req,res)=>{
     }
 })
 
+//Creating API for deleting products
+app.delete("/deleteproduct",async (req,res)=>{
+    await Product.findOneAndDelete({id:req.body.id});
+    console.log("Removed");
+    res.json({
+        success:true,
+      name:req.body.name,
+    })
+})
+//Create api for getting all products
+app.get('/allproducts',async(req , res)=>{
+         const products= await Product.find({});
+         console.log("all products fetched")
+         res.send(products);
+})
+
 app.listen(port,()=>{
  console.log("port are connecter at 4000...." )
 })
