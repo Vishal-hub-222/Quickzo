@@ -21,3 +21,68 @@
     display: flex;
     gap: 30px;
 }
+@media (max-width:1280px)
+{
+    .reletedProduct{
+        height: 70vh;
+    }
+    .reletedProduct h1{
+        font-size: 40px;
+    }
+    .reletedProduct hr{
+        width: 160px;
+        height: 4px;
+    }
+    .reletedProduct-item{
+        gap: 20px;
+        margin-top: 30px;
+    }
+}
+@media (max-width:1024px)
+{
+    .reletedProduct{
+        height: 60vh;
+    }
+    .reletedProduct h1{
+        font-size: 30px;
+    }
+    .reletedProduct hr{
+        width: 120px;
+        height: 3px;
+    }
+    .reletedProduct-item{
+        gap: 15px;
+        margin-top: 20px;
+    }
+}
+@media (max-width:800px)
+{
+    .reletedProduct{
+        height: 50vh;
+        gap: 6px;
+    }
+    .reletedProduct h1{
+        font-size: 20px;
+    }
+    .reletedProduct hr{
+        width: 100px;
+      
+    }
+    .reletedProduct-item{
+        gap: 5px;
+    }
+}
+@media (max-width:500px)
+{
+    .reletedProduct{
+        height: 90vh;
+    }
+   
+    
+    .reletedProduct-item{
+        display: grid;
+        gap: 20px;
+       
+        grid-template-columns: 1fr 1fr;
+    }
+}
